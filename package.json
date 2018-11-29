@@ -1,0 +1,48 @@
+{
+  "name": "enveigle",
+  "description": "Deceive Ansible to template Trellis .env files to local system",
+  "version": "0.0.0",
+  "author": "Tang Rufus @TangRufus",
+  "bin": {
+    "enveigle": "./bin/run"
+  },
+  "bugs": "https://github.com/ItinerisLtd/enveigle/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/tslint": "^3",
+    "@types/chai": "^4",
+    "@types/mocha": "^5",
+    "@types/node": "^10",
+    "ts-node": "^7",
+    "tslint": "^5",
+    "typescript": "^3.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/ItinerisLtd/enveigle",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "bin": "enveigle"
+  },
+  "repository": "ItinerisLtd/enveigle",
+  "scripts": {
+    "posttest": "tslint -p . -t stylish",
+    "prepack": "rm -rf lib && tsc -b",
+    "test": "echo NO TESTS"
+  },
+  "types": "lib/index.d.ts"
+}
