@@ -1,28 +1,53 @@
 import {Command, flags} from '@oclif/command'
+import Listr = require('listr')
+import execa = require('execa');
+import fs = require('fs')
+import path = require('path');
 
 class Enveigle extends Command {
-  static description = 'describe the command here'
+  static description = 'Deceive Ansible to template Trellis .env files to local system'
 
   static flags = {
     // add --version flag to show CLI version
     version: flags.version({char: 'v'}),
     help: flags.help({char: 'h'}),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: flags.boolean({char: 'f'}),
+    env: flags.string({
+      char: 'e',
+      description: 'local environment name',
+      default: 'development',
+    }),
   }
 
-  static args = [{name: 'file'}]
-
   async run() {
-    const {args, flags} = this.parse(Enveigle)
+    const {flags} = this.parse(Enveigle)
 
-    const name = flags.name || 'world'
-    this.log(`hello ${name} from ./src/index.ts`)
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
-    }
+    const tasks = new Listr([
+      {
+        title: 'Copy enveigle.yml',
+        task: () => {
+          const source = path.join(__dirname, '../templates/enveigle.yml')
+          fs.copyFileSync(source, 'enveigle.yml')
+        }
+      },
+      {
+        title: 'Template .env files to local system',
+        task: (ctx, task) => {
+          task.output = `$ ansible-playbook enveigle.yml -e env=${flags.env}`
+          return execa('ansible-playbook', ['enveigle.yml', `-e env=${flags.env}`])
+        }
+      },
+      {
+        title: 'Remove enveigle.yml',
+        task: () => fs.unlinkSync('enveigle.yml')
+      },
+    ]);
+
+    tasks.run().catch(err => {
+      console.error(err)
+      console.error('##########################################');
+      console.error('Abort! Something went wrong');
+      console.error('You have to delete enveigle.yml manually');
+    });
   }
 }
 
