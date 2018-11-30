@@ -1,5 +1,5 @@
 {
-  "name": "enveigle",
+  "name": "@itinerisltd/enveigle",
   "description": "Deceive Ansible to template Trellis .env files to local system",
   "version": "0.1.1",
   "author": "Tang Rufus @TangRufus",
