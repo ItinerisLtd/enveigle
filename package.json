@@ -11,6 +11,7 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
+    "@oclif/plugin-warn-if-update-available": "^1.5.4",
     "execa": "^1.0.0",
     "listr": "^0.14.3",
     "tslib": "^1"
@@ -41,7 +42,14 @@
   "license": "MIT",
   "main": "lib/index.js",
   "oclif": {
-    "bin": "enveigle"
+    "bin": "enveigle",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-warn-if-update-available"
+    ],
+    "warn-if-update-available": {
+      "timeoutInDays": 1
+    }
   },
   "repository": "ItinerisLtd/enveigle",
   "scripts": {
