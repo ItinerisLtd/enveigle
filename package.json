@@ -31,7 +31,8 @@
   },
   "files": [
     "/bin",
-    "/lib"
+    "/lib",
+    "/templates"
   ],
   "homepage": "https://github.com/ItinerisLtd/enveigle",
   "keywords": [
