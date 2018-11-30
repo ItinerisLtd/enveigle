@@ -1,8 +1,8 @@
 import {Command, flags} from '@oclif/command'
-import Listr = require('listr')
-import execa = require('execa');
+import execa = require('execa')
 import fs = require('fs')
-import path = require('path');
+import Listr = require('listr')
+import path = require('path')
 
 class Enveigle extends Command {
   static description = 'Deceive Ansible to template Trellis .env files to local system'
@@ -31,7 +31,7 @@ class Enveigle extends Command {
       },
       {
         title: 'Template .env files to local system',
-        task: (ctx, task) => {
+        task: (_, task) => {
           task.output = `$ ansible-playbook enveigle.yml -e env=${flags.env}`
           return execa('ansible-playbook', ['enveigle.yml', `-e env=${flags.env}`])
         }
@@ -40,14 +40,14 @@ class Enveigle extends Command {
         title: 'Remove enveigle.yml',
         task: () => fs.unlinkSync('enveigle.yml')
       },
-    ]);
+    ])
 
     tasks.run().catch(err => {
       console.error(err)
-      console.error('##########################################');
-      console.error('Abort! Something went wrong');
-      console.error('You have to delete enveigle.yml manually');
-    });
+      console.error('##########################################')
+      console.error('Abort! Something went wrong')
+      console.error('You have to delete enveigle.yml manually')
+    })
   }
 }
 
