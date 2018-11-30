@@ -1,7 +1,7 @@
 {
   "name": "enveigle",
   "description": "Deceive Ansible to template Trellis .env files to local system",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Tang Rufus @TangRufus",
   "bin": {
     "enveigle": "./bin/run"
