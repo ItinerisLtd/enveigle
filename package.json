@@ -1,12 +1,26 @@
 {
   "name": "@itinerisltd/enveigle",
-  "description": "Deceive Ansible to template Trellis .env files to local system",
+  "description": "Deceive Ansible to template Trellis .env files to local Bedrock",
   "version": "0.2.0",
-  "author": "Tang Rufus @TangRufus",
+  "author": {
+    "name": "Tang Rufus",
+    "email": "tangrufus@gmail.com",
+    "url": "https://typist.tech"
+  },
+  "contributors": [
+    {
+      "name": "Itineris Limited",
+      "email": "hello@itineris.co.uk",
+      "url": "https://itineris.co.uk"
+    }
+  ],
   "bin": {
     "enveigle": "./bin/run"
   },
-  "bugs": "https://github.com/ItinerisLtd/enveigle/issues",
+  "bugs": {
+    "url": "https://github.com/ItinerisLtd/enveigle/issues",
+    "email": "hello@itineris.co.uk"
+  },
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -17,6 +31,7 @@
     "tslib": "^1"
   },
   "devDependencies": {
+    "@oclif/dev-cli": "^1.19.5",
     "@oclif/tslint": "^3",
     "@types/chai": "^4",
     "@types/execa": "^0.9.0",
@@ -28,7 +43,7 @@
     "typescript": "^3.0"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10.13.0"
   },
   "files": [
     "/bin",
@@ -37,7 +52,13 @@
   ],
   "homepage": "https://github.com/ItinerisLtd/enveigle",
   "keywords": [
-    "oclif"
+    "ansible",
+    "bedrock",
+    "dotenv",
+    "env",
+    "oclif",
+    "trellis",
+    "wordpress"
   ],
   "license": "MIT",
   "main": "lib/index.js",
@@ -51,7 +72,7 @@
       "timeoutInDays": 1
     }
   },
-  "repository": "ItinerisLtd/enveigle",
+  "repository": "github:ItinerisLtd/enveigle",
   "scripts": {
     "posttest": "tslint -p . -t stylish",
     "prepack": "rm -rf lib && tsc -b",
