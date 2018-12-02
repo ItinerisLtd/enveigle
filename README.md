@@ -17,7 +17,7 @@ Deceive Ansible to template Trellis .env files to local Bedrock
 - [Installation](#installation)
 - [Usage](#usage)
 - [FAQ](#faq)
-  - [Can I run `$ npx enveigle` instead?](#can-i-run--npx-enveigle-instead)
+  - [Can I run `$ npx @itinerisltd/enveigle` instead?](#can-i-run--npx-itinerisltdenveigle-instead)
   - [Why not commit `enveigle.yml` under git?](#why-not-commit-enveigleyml-under-git)
   - [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
   - [This isn't on wp.org. Where can I give a ⭐️⭐️⭐️⭐️⭐️ review?](#this-isnt-on-wporg-where-can-i-give-a-%EF%B8%8F%EF%B8%8F%EF%B8%8F%EF%B8%8F%EF%B8%8F-review)
