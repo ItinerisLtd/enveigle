@@ -3,9 +3,9 @@
 Deceive Ansible to template Trellis .env files to local Bedrock
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/enveigle.svg)](https://npmjs.org/package/enveigle)
-[![Downloads/week](https://img.shields.io/npm/dw/enveigle.svg)](https://npmjs.org/package/enveigle)
-[![License](https://img.shields.io/npm/l/enveigle.svg)](https://github.com/ItinerisLtd/enveigle/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/@itinerisltd/enveigle.svg)](https://npmjs.org/package/@itinerisltd/enveigle)
+[![Downloads/week](https://img.shields.io/npm/dw/@itinerisltd/enveigle.svg)](https://npmjs.org/package/@itinerisltd/enveigle)
+[![License](https://img.shields.io/npm/l/@itinerisltd/enveigle.svg)](https://github.com/ItinerisLtd/enveigle/blob/master/package.json)
 [![Hire Itineris](https://img.shields.io/badge/Hire-Itineris-ff69b4.svg)](https://www.itineris.co.uk/contact/)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
