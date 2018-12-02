@@ -5,7 +5,7 @@ import * as Listr from 'listr'
 import * as path from 'path'
 
 class Enveigle extends Command {
-  static description = 'Deceive Ansible to template Trellis .env files to local system'
+  static description = 'Deceive Ansible to template Trellis .env files to local Bedrock'
 
   static flags = {
     // add --version flag to show CLI version

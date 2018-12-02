@@ -18,7 +18,6 @@ Deceive Ansible to template Trellis .env files to local Bedrock
 - [Usage](#usage)
 - [FAQ](#faq)
   - [Can I run `$ npx enveigle` instead?](#can-i-run--npx-enveigle-instead)
-  - [Nothing happen after running the command?](#nothing-happen-after-running-the-command)
   - [Why not commit `enveigle.yml` under git?](#why-not-commit-enveigleyml-under-git)
   - [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
   - [This isn't on wp.org. Where can I give a ⭐️⭐️⭐️⭐️⭐️ review?](#this-isnt-on-wporg-where-can-i-give-a-%EF%B8%8F%EF%B8%8F%EF%B8%8F%EF%B8%8F%EF%B8%8F-review)
@@ -52,23 +51,24 @@ $ yarn global add @itinerisltd/enveigle
 ```sh-session
 $ cd /path/to/trellis
 
-# For normal Trellis setup, i.e: `--env=development`
+# For normal Trellis setup
 $ enveigle
 
 # For brave developers
-$ enveigle --env=my-custom-dev-env
+$ enveigle --env=my-custom-dev-env --callback_dir=callback_dir=/path/to/my/callback/dir
 
 # For the confused
 $ enveigle --help
-Deceive Ansible to template Trellis .env files to local system
+Deceive Ansible to template Trellis .env files to local Bedrock
 
 USAGE
   $ enveigle
 
 OPTIONS
-  -e, --env=env  [default: development] local environment name
-  -h, --help     show CLI help
-  -v, --version  show CLI version
+  -c, --callback_dir=callback_dir  [default: lib/trellis/plugins/callback] ansible callback directory
+  -e, --env=env                    [default: development] local environment name
+  -h, --help                       show CLI help
+  -v, --version                    show CLI version
 ```
 
 ## FAQ
@@ -76,13 +76,6 @@ OPTIONS
 ### Can I run `$ npx enveigle` instead?
 
 Why not?
-
-### Nothing happen after running the command?
-
-By default, Trellis name the local environment `development`.
-If you change it or passing an incorrect `--env` flag, the [anisble playbook](./templates/enveigle.yml) skip without showing errors.
-
-This is not ideal. Pull requests are welcomed.
 
 ### Why not commit `enveigle.yml` under git?
 
