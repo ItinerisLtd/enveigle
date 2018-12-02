@@ -1,8 +1,8 @@
 import {Command, flags} from '@oclif/command'
-import execa = require('execa')
-import fs = require('fs')
-import Listr = require('listr')
-import path = require('path')
+import * as execa from 'execa'
+import * as fs from 'fs'
+import * as Listr from 'listr'
+import * as path from 'path'
 
 class Enveigle extends Command {
   static description = 'Deceive Ansible to template Trellis .env files to local system'
