@@ -1,11 +1,11 @@
 import {Command, flags} from '@oclif/command'
-import execa = require('execa')
-import fs = require('fs')
-import Listr = require('listr')
-import path = require('path')
+import * as execa from 'execa'
+import * as fs from 'fs'
+import * as Listr from 'listr'
+import * as path from 'path'
 
 class Enveigle extends Command {
-  static description = 'Deceive Ansible to template Trellis .env files to local system'
+  static description = 'Deceive Ansible to template Trellis .env files to local Bedrock'
 
   static flags = {
     // add --version flag to show CLI version
@@ -16,9 +16,9 @@ class Enveigle extends Command {
       description: 'local environment name',
       default: 'development',
     }),
-    cbpath: flags.string({
+    callback_dir: flags.string({
       char: 'c',
-      description: 'callback path',
+      description: 'ansible callback directory',
       default: 'lib/trellis/plugins/callback',
     }),
   }
@@ -26,40 +26,60 @@ class Enveigle extends Command {
   async run() {
     const {flags} = this.parse(Enveigle)
 
+    const temporaryPlaybook = {
+      name: 'playbook',
+      src: path.join(__dirname, '../templates/enveigle.yml'),
+      dest: 'enveigle.yml',
+    }
+    const temporaries = [
+      temporaryPlaybook,
+      {
+        name: 'no_hosts_matched_callback',
+        src: path.join(__dirname, '../templates/no_hosts_matched.py'),
+        dest: flags.callback_dir + '/no_hosts_matcheded.py',
+      },
+    ]
+
     const tasks = new Listr([
       {
-        title: 'Copy enveigle.yml & callback',
-        task: () => {
-          const enveigle = path.join(__dirname, '../templates/enveigle.yml')
-          const callback = path.join(__dirname, '../callback_plugins/no_hosts_matched.py')
-          fs.copyFileSync(callback, (flags.cbpath + '/no_hosts_matcheded.py'))
-          fs.copyFileSync(enveigle, 'enveigle.yml')
-        }
+        title: 'Copy temporary files',
+        task: () => temporaries.forEach(temporary => fs.copyFileSync(temporary.src, temporary.dest))
       },
       {
         title: 'Template .env files to local system',
-        task: (_, task) =>  execa('ansible-playbook', ['enveigle.yml', `-e env=${flags.env}`])
-        .catch((result) => {
-          if (result.code = 10) {
-            throw new Error('Could not match supplied host pattern')
-          } else {
-            task.skip('Something went wrong. Try again!')
-          }
-        })
-      },
-      {
-        title: 'Remove enveigle.yml',
-        task: () => {
-          fs.unlinkSync('enveigle.yml')
-          fs.unlinkSync(flags.cbpath + '/no_hosts_matcheded.py')
+        task: (ctx, task) => {
+          task.title = `$ ansible-playbook ${temporaryPlaybook.dest} -e env=${flags.env}`
+
+          return execa('ansible-playbook', [temporaryPlaybook.dest, `-e env=${flags.env}`])
+            .catch(err => {
+              if (err.code === 10) {
+                task.skip('Could not match supplied host pattern. Try the `--env` flag!')
+                return
+              }
+
+              ctx.ansibleErr = err
+              task.skip('Something went wrong. Try again!')
+            }
+          )
         }
       },
+      {
+        title: 'Cleanup temporary files',
+        task: () => temporaries.forEach(temporary => fs.unlinkSync(temporary.dest))
+      },
+      {
+        title: 'Re-throw ansible error',
+        enabled: ctx => ctx.ansibleErr,
+        task: ctx => {
+          throw ctx.ansibleErr
+        }
+      }
     ])
 
     tasks.run().catch(err => {
+      console.error('')
       console.error('##########################################')
       console.error('Abort! Something went wrong')
-      console.error('You have to delete enveigle.yml manually')
       console.error('Error message:')
       console.error(err)
     })
