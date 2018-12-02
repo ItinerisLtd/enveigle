@@ -73,7 +73,7 @@ OPTIONS
 
 ## FAQ
 
-### Can I run `$ npx enveigle` instead?
+### Can I run `$ npx @itinerisltd/enveigle` instead?
 
 Why not?
 
