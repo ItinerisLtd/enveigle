@@ -75,7 +75,7 @@ OPTIONS
 
 ### Can I run `$ npx @itinerisltd/enveigle` instead?
 
-Why not?
+Yes.
 
 ### Why not commit `enveigle.yml` under git?
 
