@@ -2,7 +2,14 @@
 
 ## [Unreleased](https://github.com/ItinerisLtd/enveigle/tree/HEAD)
 
-[Full Changelog](https://github.com/ItinerisLtd/enveigle/compare/v0.3.2...HEAD)
+[Full Changelog](https://github.com/ItinerisLtd/enveigle/compare/v0.4.0...HEAD)
+
+**Merged pull requests:**
+
+- Auto-update changelog after publishing new releases [\#18](https://github.com/ItinerisLtd/enveigle/pull/18) ([TangRufus](https://github.com/TangRufus))
+
+## [v0.4.0](https://github.com/ItinerisLtd/enveigle/tree/v0.4.0) (2019-01-05)
+[Full Changelog](https://github.com/ItinerisLtd/enveigle/compare/v0.3.2...v0.4.0)
 
 **Closed issues:**
 
