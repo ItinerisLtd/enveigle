@@ -14,11 +14,13 @@ class Enveigle extends Command {
     env: flags.string({
       char: 'e',
       description: 'local environment name',
+      env: 'ENVEIGLE_ENV',
       default: 'development',
     }),
     callback_dir: flags.string({
       char: 'c',
       description: 'ansible callback directory',
+      env: 'ENVEIGLE_CALLBACK_DIR',
       default: 'lib/trellis/plugins/callback',
     }),
   }

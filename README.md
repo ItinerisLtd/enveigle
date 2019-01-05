@@ -71,6 +71,16 @@ OPTIONS
 
 ## FAQ
 
+### Can I change default flag values?
+
+Yes. You can change them via environment variables.
+
+These 2 commands are equivalent:
+```sh-session
+$ ENVEIGLE_ENV=my-env ENVEIGLE_CALLBACK_DIR=/my/callback/dir npx @itinerisltd/enveigle
+$ npx @itinerisltd/enveigle --env=my-env --callback_dir=callback_dir=/my/callback/dir
+```
+
 ### Can I install `enveigle` instead of using `$ npx`?
 
 Yes. However, you are responsible for updating it.
