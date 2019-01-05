@@ -17,6 +17,7 @@ Deceive Ansible to template Trellis .env files to local Bedrock
 - [Installation](#installation)
 - [Usage](#usage)
 - [FAQ](#faq)
+  - [Can I change default flag values?](#can-i-change-default-flag-values)
   - [Can I install `enveigle` instead of using `$ npx`?](#can-i-install-enveigle-instead-of-using--npx)
   - [Why not commit `enveigle.yml` under git?](#why-not-commit-enveigleyml-under-git)
   - [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
