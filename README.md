@@ -17,7 +17,7 @@ Deceive Ansible to template Trellis .env files to local Bedrock
 - [Installation](#installation)
 - [Usage](#usage)
 - [FAQ](#faq)
-  - [Can I run `$ npx @itinerisltd/enveigle` instead?](#can-i-run--npx-itinerisltdenveigle-instead)
+  - [Can I install `enveigle` instead of using `$ npx`?](#can-i-install-enveigle-instead-of-using--npx)
   - [Why not commit `enveigle.yml` under git?](#why-not-commit-enveigleyml-under-git)
   - [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
   - [This isn't on wp.org. Where can I give a ⭐️⭐️⭐️⭐️⭐️ review?](#this-isnt-on-wporg-where-can-i-give-a-%EF%B8%8F%EF%B8%8F%EF%B8%8F%EF%B8%8F%EF%B8%8F-review)
@@ -42,9 +42,7 @@ Populate `.env` files to local Bedrock with ansible so that we can develop with 
 
 ## Installation
 
-```sh-session
-$ yarn global add @itinerisltd/enveigle
-```
+`$ npx @itinerisltd/enveigle` just work! No installation required.
 
 ## Usage
 
@@ -52,17 +50,17 @@ $ yarn global add @itinerisltd/enveigle
 $ cd /path/to/trellis
 
 # For normal Trellis setup
-$ enveigle
+$ npx @itinerisltd/enveigle
 
 # For brave developers
-$ enveigle --env=my-custom-dev-env --callback_dir=callback_dir=/path/to/my/callback/dir
+$ npx @itinerisltd/enveigle --env=my-custom-dev-env --callback_dir=callback_dir=/path/to/my/callback/dir
 
 # For the confused
-$ enveigle --help
+$ npx @itinerisltd/enveigle --help
 Deceive Ansible to template Trellis .env files to local Bedrock
 
 USAGE
-  $ enveigle
+  $ npx @itinerisltd/enveigle
 
 OPTIONS
   -c, --callback_dir=callback_dir  [default: lib/trellis/plugins/callback] ansible callback directory
@@ -73,9 +71,16 @@ OPTIONS
 
 ## FAQ
 
-### Can I run `$ npx @itinerisltd/enveigle` instead?
+### Can I install `enveigle` instead of using `$ npx`?
 
-Yes.
+Yes. However, you are responsible for updating it.
+
+```sh-session
+# yarn or npm doesn't matter
+$ yarn global add @itinerisltd/enveigle
+$ cd /path/to/trellis
+$ enveigle
+```
 
 ### Why not commit `enveigle.yml` under git?
 
