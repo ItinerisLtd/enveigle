@@ -6,10 +6,13 @@
 
 **Closed issues:**
 
+- Recommand running with `npx` [\#14](https://github.com/ItinerisLtd/enveigle/issues/14)
 - Verify `oclif/plugin-warn-if-update-available` is working [\#8](https://github.com/ItinerisLtd/enveigle/issues/8)
 
 **Merged pull requests:**
 
+- Allow changing default flag values via environment variables [\#17](https://github.com/ItinerisLtd/enveigle/pull/17) ([TangRufus](https://github.com/TangRufus))
+- Recommand running with `npx`; Add changelog [\#16](https://github.com/ItinerisLtd/enveigle/pull/16) ([TangRufus](https://github.com/TangRufus))
 - yarn remove @oclif/plugin-warn-if-update-available && yarn upgrade [\#15](https://github.com/ItinerisLtd/enveigle/pull/15) ([TangRufus](https://github.com/TangRufus))
 - Create LICENSE [\#13](https://github.com/ItinerisLtd/enveigle/pull/13) ([TangRufus](https://github.com/TangRufus))
 
