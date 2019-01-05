@@ -32,10 +32,8 @@
   "devDependencies": {
     "@oclif/dev-cli": "^1.19.5",
     "@oclif/tslint": "^3",
-    "@types/chai": "^4",
     "@types/execa": "^0.9.0",
     "@types/listr": "^0.13.0",
-    "@types/mocha": "^5",
     "@types/node": "^10.12.10",
     "ts-node": "^7",
     "tslint": "^5",
@@ -65,10 +63,7 @@
     "bin": "enveigle",
     "plugins": [
       "@oclif/plugin-help"
-    ],
-    "warn-if-update-available": {
-      "timeoutInDays": 1
-    }
+    ]
   },
   "repository": "github:ItinerisLtd/enveigle",
   "scripts": {
@@ -76,7 +71,7 @@
     "prepack": "rm -rf lib && tsc -b",
     "test": "echo NO TESTS",
     "version": "npx doctoc README.md && git add README.md",
-    "release": "np && github_changelog_generator && git add CHANGELOG.md && git commit -m 'github_changelog_generator' && git push origin master"
+    "release": "npx np && github_changelog_generator && git add CHANGELOG.md && git commit -m 'github_changelog_generator' && git push origin master"
   },
   "types": "lib/index.d.ts",
   "publishConfig": {
