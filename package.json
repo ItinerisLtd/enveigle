@@ -25,7 +25,6 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
-    "@oclif/plugin-warn-if-update-available": "^1.5.4",
     "execa": "^1.0.0",
     "listr": "^0.14.3",
     "tslib": "^1"
@@ -65,8 +64,7 @@
   "oclif": {
     "bin": "enveigle",
     "plugins": [
-      "@oclif/plugin-help",
-      "@oclif/plugin-warn-if-update-available"
+      "@oclif/plugin-help"
     ],
     "warn-if-update-available": {
       "timeoutInDays": 1
