@@ -1,8 +1,14 @@
 # Change Log
 
-## [Unreleased](https://github.com/ItinerisLtd/enveigle/tree/HEAD)
+## [v0.4.2](https://github.com/ItinerisLtd/enveigle/tree/v0.4.2) (2019-01-05)
+[Full Changelog](https://github.com/ItinerisLtd/enveigle/compare/v0.4.1...v0.4.2)
 
-[Full Changelog](https://github.com/ItinerisLtd/enveigle/compare/v0.4.0...HEAD)
+**Merged pull requests:**
+
+- Fix: Auto-update changelog after publishing new releases [\#19](https://github.com/ItinerisLtd/enveigle/pull/19) ([TangRufus](https://github.com/TangRufus))
+
+## [v0.4.1](https://github.com/ItinerisLtd/enveigle/tree/v0.4.1) (2019-01-05)
+[Full Changelog](https://github.com/ItinerisLtd/enveigle/compare/v0.4.0...v0.4.1)
 
 **Merged pull requests:**
 
