@@ -75,7 +75,8 @@
     "posttest": "tslint -p . -t stylish",
     "prepack": "rm -rf lib && tsc -b",
     "test": "echo NO TESTS",
-    "version": "npx doctoc README.md && git add README.md"
+    "version": "npx doctoc README.md && git add README.md",
+    "postversion": "github_changelog_generator && git add CHANGELOG.md"
   },
   "types": "lib/index.d.ts",
   "publishConfig": {
