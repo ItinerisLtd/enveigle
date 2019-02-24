@@ -45,7 +45,10 @@ class Enveigle extends Command {
     const tasks = new Listr([
       {
         title: 'Copy temporary files',
-        task: () => temporaries.forEach(temporary => fs.copyFileSync(temporary.src, temporary.dest))
+        task: () => temporaries.forEach(temporary => {
+          const content = fs.readFileSync(temporary.src, 'utf8')
+          fs.writeFileSync(temporary.dest, content)
+        })
       },
       {
         title: 'Template .env files to local system',
