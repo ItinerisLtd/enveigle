@@ -46,15 +46,14 @@ class Enveigle extends Command {
       {
         title: 'Check ansible installed',
         task: () => {
-          return execa('which', ['ansible-playbook'])
-            .catch(() => {
-              const message = `
-Command ansible-playbook not found. Please install ansible.
-See: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+          return execa('which', ['ansible-playbook']).catch(() => {
+            const message = `Command ansible-playbook not found.
+Solution: Install ansible.
+See: https://docs.ansible.com/ansible/latest/installation_guide/index.html
 `
-              throw new Error(message)
+            throw new Error(message)
           })
-        }
+        },
       },
       {
         title: 'Copy temporary files',
@@ -67,20 +66,21 @@ See: https://docs.ansible.com/ansible/latest/installation_guide/intro_installati
 
           return execa('ansible-playbook', [temporaryPlaybook.dest, `-e env=${flags.env}`], {
             env: {
-              ANSIBLE_RETRY_FILES_ENABLED: "false",
+              ANSIBLE_RETRY_FILES_ENABLED: 'false',
             },
-          })
-            .catch(err => {
-              if (err.exitCode === 10) {
-                task.skip('Could not match supplied host pattern. Try the `--env` flag!')
-                return
-              }
-
-              ctx.ansibleErr = err
-              task.skip('Something went wrong. Try again!')
             }
-          )
-        }
+          ).catch(err => {
+            if (err.exitCode === 10) {
+              const message =
+                'Could not match supplied host pattern. Try the `--env` flag!'
+              task.skip(message)
+              ctx.err = new Error(message)
+            }
+
+            ctx.ansibleErr = err
+            task.skip('Something went wrong. Try again!')
+          })
+        },
       },
       {
         title: 'Cleanup temporary files',
@@ -90,17 +90,26 @@ See: https://docs.ansible.com/ansible/latest/installation_guide/intro_installati
         title: 'Re-throw ansible error',
         enabled: ctx => ctx.ansibleErr,
         task: ctx => {
-          throw ctx.ansibleErr
+          const ansibleErr: execa.ExecaError<string> = ctx.ansibleErr
+          throw new Error(ansibleErr.stdout)
+        },
+      },
+      {
+        title: 'Re-throw error',
+        enabled: ctx => ctx.err,
+        task: ctx => {
+          throw ctx.err
         }
-      }
+      },
     ])
 
     tasks.run().catch(err => {
-      console.error('')
-      console.error('##########################################')
-      console.error('Abort! Something went wrong')
-      console.error('Error message:')
-      console.error(err)
+      this.log('')
+      this.error('####################################', {exit: false})
+      this.error('Abort! Something went wrong', {exit: false})
+      this.error(err.message, {exit: false})
+      this.log('')
+      this.exit(1)
     })
   }
 }

@@ -1,6 +1,3 @@
 {
-  "extends": "@oclif/tslint",
-  "rules": {
-      "no-console": [true, "log", "warn"]
-  }
+  "extends": "@oclif/tslint"
 }
