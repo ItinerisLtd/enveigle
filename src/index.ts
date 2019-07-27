@@ -52,7 +52,11 @@ class Enveigle extends Command {
         task: (ctx, task) => {
           task.title = `$ ansible-playbook ${temporaryPlaybook.dest} -e env=${flags.env}`
 
-          return execa('ansible-playbook', [temporaryPlaybook.dest, `-e env=${flags.env}`])
+          return execa('ansible-playbook', [temporaryPlaybook.dest, `-e env=${flags.env}`], {
+            env: {
+              ANSIBLE_RETRY_FILES_ENABLED: "false",
+            },
+          })
             .catch(err => {
               if (err.code === 10) {
                 task.skip('Could not match supplied host pattern. Try the `--env` flag!')
