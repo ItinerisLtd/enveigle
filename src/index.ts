@@ -44,6 +44,19 @@ class Enveigle extends Command {
 
     const tasks = new Listr([
       {
+        title: 'Check ansible installed',
+        task: () => {
+          return execa('which', ['ansible-playbook'])
+            .catch(() => {
+              const message = `
+Command ansible-playbook not found. Please install ansible.
+See: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+`
+              throw new Error(message)
+          })
+        }
+      },
+      {
         title: 'Copy temporary files',
         task: () => temporaries.forEach(temporary => fs.copyFileSync(temporary.src, temporary.dest))
       },
