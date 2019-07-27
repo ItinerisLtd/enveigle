@@ -1,5 +1,8 @@
 # Change Log
 
+## [v0.5.1](https://github.com/ItinerisLtd/enveigle/tree/v0.5.1) (2019-07-27)
+[Full Changelog](https://github.com/ItinerisLtd/enveigle/compare/v0.5.0...v0.5.1)
+
 ## [v0.5.0](https://github.com/ItinerisLtd/enveigle/tree/v0.5.0) (2019-07-27)
 [Full Changelog](https://github.com/ItinerisLtd/enveigle/compare/v0.4.2...v0.5.0)
 
@@ -37,6 +40,7 @@
 **Merged pull requests:**
 
 - Auto-update changelog after publishing new releases [\#18](https://github.com/ItinerisLtd/enveigle/pull/18) ([TangRufus](https://github.com/TangRufus))
+- Fix: `npx doctoc README.md` when publishing new release [\#11](https://github.com/ItinerisLtd/enveigle/pull/11) ([TangRufus](https://github.com/TangRufus))
 
 ## [v0.4.0](https://github.com/ItinerisLtd/enveigle/tree/v0.4.0) (2019-01-05)
 [Full Changelog](https://github.com/ItinerisLtd/enveigle/compare/v0.3.2...v0.4.0)
@@ -59,7 +63,6 @@
 **Merged pull requests:**
 
 - nodenv local 10.13.0 [\#12](https://github.com/ItinerisLtd/enveigle/pull/12) ([TangRufus](https://github.com/TangRufus))
-- Fix: `npx doctoc README.md` when publishing new release [\#11](https://github.com/ItinerisLtd/enveigle/pull/11) ([TangRufus](https://github.com/TangRufus))
 - `npx doctoc README.md` when publishing new release [\#10](https://github.com/ItinerisLtd/enveigle/pull/10) ([TangRufus](https://github.com/TangRufus))
 
 ## [v0.3.1](https://github.com/ItinerisLtd/enveigle/tree/v0.3.1) (2018-12-02)
