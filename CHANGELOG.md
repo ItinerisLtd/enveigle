@@ -1,5 +1,29 @@
 # Change Log
 
+## [v0.5.0](https://github.com/ItinerisLtd/enveigle/tree/v0.5.0) (2019-07-27)
+[Full Changelog](https://github.com/ItinerisLtd/enveigle/compare/v0.4.2...v0.5.0)
+
+**Implemented enhancements:**
+
+- Check `which ansible` before running commands [\#27](https://github.com/ItinerisLtd/enveigle/issues/27)
+
+**Closed issues:**
+
+- Clean up ansible retry files [\#22](https://github.com/ItinerisLtd/enveigle/issues/22)
+
+**Merged pull requests:**
+
+- Update error message rendering [\#32](https://github.com/ItinerisLtd/enveigle/pull/32) ([TangRufus](https://github.com/TangRufus))
+- rm .node-version [\#31](https://github.com/ItinerisLtd/enveigle/pull/31) ([TangRufus](https://github.com/TangRufus))
+- yarn upgrade [\#30](https://github.com/ItinerisLtd/enveigle/pull/30) ([TangRufus](https://github.com/TangRufus))
+- Check ansible installed [\#29](https://github.com/ItinerisLtd/enveigle/pull/29) ([TangRufus](https://github.com/TangRufus))
+- Run `ansible-playbook` with `ANSIBLE\_RETRY\_FILES\_ENABLED=false` [\#28](https://github.com/ItinerisLtd/enveigle/pull/28) ([TangRufus](https://github.com/TangRufus))
+- Bump js-yaml from 3.12.1 to 3.13.1 [\#26](https://github.com/ItinerisLtd/enveigle/pull/26) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump lodash from 4.17.11 to 4.17.14 [\#25](https://github.com/ItinerisLtd/enveigle/pull/25) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump lodash.template from 4.4.0 to 4.5.0 [\#24](https://github.com/ItinerisLtd/enveigle/pull/24) ([dependabot[bot]](https://github.com/apps/dependabot))
+- License: Update copyright year [\#21](https://github.com/ItinerisLtd/enveigle/pull/21) ([TangRufus](https://github.com/TangRufus))
+- Clean up package.json [\#20](https://github.com/ItinerisLtd/enveigle/pull/20) ([TangRufus](https://github.com/TangRufus))
+
 ## [v0.4.2](https://github.com/ItinerisLtd/enveigle/tree/v0.4.2) (2019-01-05)
 [Full Changelog](https://github.com/ItinerisLtd/enveigle/compare/v0.4.1...v0.4.2)
 
