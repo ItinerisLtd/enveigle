@@ -68,8 +68,7 @@ See: https://docs.ansible.com/ansible/latest/installation_guide/index.html
             env: {
               ANSIBLE_RETRY_FILES_ENABLED: 'false',
             },
-            }
-          ).catch(err => {
+          }).catch(err => {
             if (err.exitCode === 10) {
               const message =
                 'Could not match supplied host pattern. Try the `--env` flag!'
@@ -90,7 +89,7 @@ See: https://docs.ansible.com/ansible/latest/installation_guide/index.html
         title: 'Re-throw ansible error',
         enabled: ctx => ctx.ansibleErr,
         task: ctx => {
-          const ansibleErr: execa.ExecaError<string> = ctx.ansibleErr
+          const ansibleErr: execa.ExecaError = ctx.ansibleErr
           throw new Error(ansibleErr.stdout)
         },
       },
