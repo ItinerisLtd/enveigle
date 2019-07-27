@@ -71,7 +71,7 @@ See: https://docs.ansible.com/ansible/latest/installation_guide/intro_installati
             },
           })
             .catch(err => {
-              if (err.code === 10) {
+              if (err.exitCode === 10) {
                 task.skip('Could not match supplied host pattern. Try the `--env` flag!')
                 return
               }
