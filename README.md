@@ -1,4 +1,13 @@
-# enveigle
+**This project has been [ported to roots/trellis-cli](https://github.com/roots/trellis-cli/pull/50) and been abandoned.**
+
+Use [roots/trellis-cli](https://github.com/roots/trellis-cli) instead and checkout similar tools by:
+
+- @ItinerisLtd: https://github.com/ItinerisLtd
+- @TangRufus: https://github.com/typisttech
+
+---
+
+# enveigle (**Abandoned**)
 
 Deceive Ansible to template Trellis .env files to local Bedrock
 
